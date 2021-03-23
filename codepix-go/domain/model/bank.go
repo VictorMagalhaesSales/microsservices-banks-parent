@@ -1,10 +1,5 @@
 package model
 
-import (
-	uuid "github.com/satori/go.uuid"
-	"time"
-)
-
 type Bank struct {
 	Base
 	Code 	string `json: "Code"`
