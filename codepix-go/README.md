@@ -4,7 +4,7 @@ Microservice feito em Golang com o objetivo de ser um **hub de transações** en
 ## Topics:
 - **GORM**: Lib ORM do para Golang.
 
-## Execute application
+## Run application
 ```sh
 cd codepix-go
 
