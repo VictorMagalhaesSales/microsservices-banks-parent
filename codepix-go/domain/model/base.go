@@ -1,12 +1,17 @@
 package model
 
 import (
-	uuid "github.com/satori/go.uuid"
 	"time"
+
+	"github.com/asaskevich/govalidator"
 )
 
-type Base{
-	ID string `json: "id"`
-	CreatedAt time.Time `json: "CreatedAt"`
-	UpdatedAt time.Time `json: "UpdatedAt"`
+func init() {
+	govalidator.SetFieldsRequiredByDefault(true)
+}
+
+type Base struct {
+	ID        string    `json:"id" gorm:"type:uuid;primary_key" valid:"uuid"`
+	CreatedAt time.Time `json:"created_at" valid:"-"`
+	UpdatedAt time.Time `json:"updated_at" valid:"-"`
 }
