@@ -2,8 +2,7 @@
 Microservice feito em Golang com o objetivo de ser um **hub de transações** entre os **bancos** que simularemos durante o projeto.
 
 ## Topics:
-- G**ORM**
-Lib ORM do para Golang.
+- **GORM**: Lib ORM do para Golang.
 
 ## Execute application
 ```sh
