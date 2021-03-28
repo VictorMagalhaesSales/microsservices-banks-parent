@@ -4,6 +4,12 @@ Microservice feito em Golang com o objetivo de ser um **hub de transações** en
 ## Topics:
 - **GORM**: Lib ORM do para Golang.
 
+## Organization
+- **application**: regras de negócios da aplicação;
+- **domain**: regras de negócio dos domínios/models;
+- **infraestructure**: conectores à serviços externos como banco de dados e persistência;
+- **cmd**: comandos para iniciar a aplicação e seus serviços(cli);
+
 ## Run application
 ```sh
 cd codepix-go
