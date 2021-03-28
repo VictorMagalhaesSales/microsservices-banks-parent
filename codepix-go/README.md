@@ -4,10 +4,13 @@ Microservice feito em Golang com o objetivo de ser um **hub de transações** en
 ## Topics:
 - **GORM**: Lib ORM do para Golang.
 
-## Organization
+## Folders organization
 - **application**: regras de negócios da aplicação;
 - **domain**: regras de negócio dos domínios/models;
-- **infraestructure**: conectores à serviços externos como banco de dados e persistência;
+    - [model](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/domain/model) folder: armazenam as structs de modelo cuja regra de negócio de auto validação(isValid(), govalidator), relacionamentos e instanciamento da struct( new*Bank*()) estão contidos.
+- **infraestructure**: conectores de serviços externos como banco de dados e persistência;
+    - [db.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/codepix-go/infraestructure/db/db.go): arquivo de conexão com o DB através do GORM;
+    - [pix.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/codepix-go/infraestructure/repository/pix.go) e [transaction.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/codepix-go/infraestructure/repository/transaction.go) são structs que recebem um banco de dados e realizam as operações de crud; 
 - **cmd**: comandos para iniciar a aplicação e seus serviços(cli);
 
 ## Run application
