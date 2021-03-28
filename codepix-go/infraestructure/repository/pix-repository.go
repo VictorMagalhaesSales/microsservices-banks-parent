@@ -7,6 +7,11 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+/*
+* Os métodos da struct são os da interface `PixKeyRepositoryInterface`;
+* No Go, não implementamos a interface via código, pois é ele quem faz essa inferência;
+* Então, por baixo dos panos, o Go vai considerar a struct `PixKeyRepositoryDb` como implementação da interface
+ */
 type PixKeyRepositoryDb struct {
 	Db *gorm.DB
 }
@@ -20,7 +25,7 @@ func (r PixKeyRepositoryDb) AddBank(bank *model.Bank) error {
 }
 
 func (r PixKeyRepositoryDb) AddAccount(account *model.Account) error {
-	err := r.Db.create(account).Error
+	err := r.Db.Create(account).Error
 
 	if err != nil {
 		return err
@@ -29,7 +34,7 @@ func (r PixKeyRepositoryDb) AddAccount(account *model.Account) error {
 }
 
 func (r PixKeyRepositoryDb) RegisterKey(pixKey *model.PixKey) (*model.PixKey, error) {
-	err := r.Db.create(pixKey).Error
+	err := r.Db.Create(pixKey).Error
 	if err != nil {
 		return nil, err
 	}

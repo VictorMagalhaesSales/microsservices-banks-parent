@@ -7,13 +7,18 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+/*
+* Os métodos da struct são os da interface `TransactionRepositoryInterface`;
+* No Go, não implementamos a interface via código, pois é ele quem faz essa inferência;
+* Então, por baixo dos panos, o Go vai considerar a struct `TransactionRepositoryDb` como implementação da interface
+ */
 type TransactionRepositoryDb struct {
 	Db *gorm.DB
 }
 
 func (r TransactionRepositoryDb) Register(transactional *model.Transaction) error {
-	err := r.Db.Create(transactional)
-	if err == nil {
+	err := r.Db.Create(transactional).Error
+	if err != nil {
 		return err
 	}
 	return nil
