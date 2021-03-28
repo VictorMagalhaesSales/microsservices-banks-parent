@@ -4,7 +4,7 @@ import (
 	"codepix-go/domain/model"
 	"fmt"
 
-	"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
 )
 
 type TransactionRepositoryDb struct {
