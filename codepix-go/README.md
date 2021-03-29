@@ -11,11 +11,9 @@ Possui uma organização de pastas pensadas para um melhor entendimento da arqui
 
 ## Run application
 ```sh
-cd codepix-go
-
-# Iniciar serviços do docker compose
+# Run docker-compose services
 docker-compose up -d
 
-# Iniciar a aplicação
+# Run go application
 go run cmd/codepix/main.go
 ```
