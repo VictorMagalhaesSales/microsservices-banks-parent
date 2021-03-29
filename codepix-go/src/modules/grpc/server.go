@@ -1,9 +1,9 @@
 package grpc
 
 import (
-	"codepix/application/grpc/pb"
-	"codepix/application/usecase"
-	"codepix/infraestructure/repository"
+	"codepix/src/modules/grpc/pb"
+	"codepix/src/repository"
+	"codepix/src/services"
 	"fmt"
 	"log"
 	"net"
@@ -18,7 +18,7 @@ func StartGrpcServer(database *gorm.DB, port int) {
 	reflection.Register(grpcServer)
 
 	pixRepository := repository.PixKeyRepositoryDb{Db: database}
-	PixService := usecase.PixService{PixKeyRepository: pixRepository}
+	PixService := services.PixService{PixKeyRepository: pixRepository}
 	pixGrpcService := NewPixGrpcService(PixService)
 	pb.RegisterPixServiceServer(grpcServer, pixGrpcService)
 

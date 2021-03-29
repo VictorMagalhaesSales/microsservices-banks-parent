@@ -1,6 +1,6 @@
-package usecase
+package services
 
-import "codepix/domain/model"
+import "codepix/src/model"
 
 type PixService struct {
 	PixKeyRepository model.PixKeyRepositoryInterface // Interface cuja implementação será PixKeyRepositoryDb

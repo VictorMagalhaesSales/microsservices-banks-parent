@@ -1,7 +1,7 @@
-package usecase
+package services
 
 import (
-	"codepix/domain/model"
+	"codepix/src/model"
 	"errors"
 )
 

@@ -1,7 +1,7 @@
-package db
+package config
 
 import (
-	"codepix/domain/model"
+	"codepix/src/model"
 	"log"
 	"os"
 	"path/filepath"

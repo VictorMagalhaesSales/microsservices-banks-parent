@@ -1,13 +1,13 @@
 package grpc
 
 import (
-	"codepix/application/grpc/pb"
-	"codepix/application/usecase"
+	"codepix/src/modules/grpc/pb"
+	"codepix/src/services"
 	"context"
 )
 
 type PixGrpcService struct {
-	PixService usecase.PixService
+	PixService services.PixService
 	pb.UnimplementedPixServiceServer
 }
 
@@ -47,8 +47,8 @@ func (p *PixGrpcService) Find(ctx context.Context, in *pb.PixKey) (*pb.PixKeyInf
 	}, nil
 }
 
-func NewPixGrpcService(usecase usecase.PixService) *PixGrpcService {
+func NewPixGrpcService(service services.PixService) *PixGrpcService {
 	return &PixGrpcService{
-		PixService: usecase,
+		PixService: service,
 	}
 }

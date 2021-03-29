@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"codepix/domain/model"
+	"codepix/src/model"
 	"fmt"
 
 	"github.com/jinzhu/gorm"
