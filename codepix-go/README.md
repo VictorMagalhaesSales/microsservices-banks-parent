@@ -15,5 +15,5 @@ Possui uma organização de pastas pensadas para um melhor entendimento da arqui
 docker-compose up -d
 
 # Run go application
-go run cmd/codepix/main.go
+go run main.go
 ```
