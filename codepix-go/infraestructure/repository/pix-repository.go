@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"codepix-go/domain/model"
+	"codepix/domain/model"
 	"fmt"
 
 	"github.com/jinzhu/gorm"

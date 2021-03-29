@@ -6,7 +6,8 @@ Microservice feito em Golang com o objetivo de ser um **hub de transações** en
 - **gRPC**: protocolo de comunicação utilizado;
 
 ## gRPC
-- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/protofiles/pixkey.proto)**: foi definide todas as **messages**(models) aceitas nas requisições e o **service** com o contrato das requisições;
+- **[server.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/server.go)**: possui a função responsável por iniciar o servidor grpc, que deve ser chamado ao iniciar a aplicação;
+- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/protofiles/pixkey.proto)**: definide todas as **messages**(models) aceitas nas requisições e o **service** com o contrato das requisições;
 
 ## Folders organization
 - **application**: regras de negócios da aplicação;
@@ -27,3 +28,6 @@ docker-compose up -d
 # Iniciar a aplicação
 go run cmd/codepix/main.go
 ```
+
+
+protoc --go_out=application/grpc/pb --go_opt=paths=source_relative --go-grpc_out=application/grpc/pb --go-grpc_opt=paths=source_relative --proto_path=application/grpc/protofiles application/grpc/protofiles/*.proto

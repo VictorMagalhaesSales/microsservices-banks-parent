@@ -1,16 +1,16 @@
 package usecase
 
 import (
-	"codepix-go/domain/model"
+	"codepix/domain/model"
 	"errors"
 )
 
-type TransactionUseCase struct {
+type TransactionBusiness struct {
 	TransactionRepository model.TransactionRepositoryInterface
 	PixRepository         model.PixKeyRepositoryInterface
 }
 
-func (t *TransactionUseCase) Register(accountId string, amount float64, pixKeyto string, pixKeyKindTo string, description string, id string) (*model.Transaction, error) {
+func (t *TransactionBusiness) Register(accountId string, amount float64, pixKeyto string, pixKeyKindTo string, description string, id string) (*model.Transaction, error) {
 
 	account, err := t.PixRepository.FindAccount(accountId)
 	if err != nil {

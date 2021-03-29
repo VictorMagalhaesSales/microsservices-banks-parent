@@ -1,15 +1,15 @@
 package usecase
 
-import "codepix-go/domain/model"
+import "codepix/domain/model"
 
-type PixUseCase struct {
+type PixBusiness struct {
 	PixKeyRepository model.PixKeyRepositoryInterface // Interface cuja implementação será PixKeyRepositoryDb
 }
 
 /*
 * Busca a `Account` e cria uma pixKey do tipo `kind` com a chave `key`
  */
-func (p *PixUseCase) RegisterKey(key string, kind string, accountId string) (*model.PixKey, error) {
+func (p *PixBusiness) RegisterKey(key string, kind string, accountId string) (*model.PixKey, error) {
 	account, err := p.PixKeyRepository.FindAccount(accountId)
 	if err != nil {
 		return nil, err
@@ -25,7 +25,7 @@ func (p *PixUseCase) RegisterKey(key string, kind string, accountId string) (*mo
 	return pix, nil
 }
 
-func (p *PixUseCase) findKey(key string, kind string) (*model.PixKey, error) {
+func (p *PixBusiness) findKey(key string, kind string) (*model.PixKey, error) {
 	pixKey, err := p.PixKeyRepository.FindKeyByKind(key, kind)
 	if err != nil {
 		return nil, err
