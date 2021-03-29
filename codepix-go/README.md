@@ -6,11 +6,12 @@ Microservice feito em Golang com o objetivo de ser um **hub de transações** en
 - **gRPC**: protocolo de comunicação utilizado;
 
 ## gRPC
-- **[server.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/server.go)**: possui a função responsável por **iniciar o servidor grpc** e registrar o **PixGrpcService** que implementa o Service do contrato .proto;
 
-- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/protofiles/pixkey.proto)**: arquivo com o **contrato de comunicação** gRPC; definide todas as **messages**(models) aceitas e o **service** com os métodos que representam as requisições;
+- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/pixkey.proto)**: arquivo com o **contrato de comunicação** gRPC; definide todas as **messages**(models) aceitas e o **service** com os métodos das requisições;
 
-- **[PixGrpcService](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/pix-grpc-service.go)**: arquivo que chama o PixService;
+- **[PixGrpcService](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/pix-grpc-service.go)**: **implementa o service** do arquivo .proto realizando as operações de crud em conjunto com **PixService**;
+
+- **[server.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/server.go)**: possui a função responsável por **iniciar o servidor grpc** e registrar o **PixGrpcService**;
 
 ## Folders organization
 - **application**: regras de negócios da aplicação;
