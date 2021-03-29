@@ -6,13 +6,11 @@ Microservice feito em Golang com o objetivo de ser um **hub de transações** en
 - **gRPC**: protocolo de comunicação utilizado;
 
 ## gRPC
-
-- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/pixkey.proto)**: arquivo com o **contrato de comunicação** gRPC; definide todas as **messages**(models) aceitas e o **service** com os métodos das requisições;
-
+- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/pixkey.proto)**: arquivo com o **contrato de comunicação** gRPC; definide as **messages** e o **service** que formam a requisição;
 - **[PixGrpcService](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/pix-grpc-service.go)**: **implementa o service** do arquivo .proto realizando as operações de crud em conjunto com **PixService**;
-
 - **[server.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/server.go)**: possui a função responsável por **iniciar o servidor grpc** e registrar o **PixGrpcService**;
 
+## Apache Kafka
 ## Run application
 ```sh
 cd codepix-go
