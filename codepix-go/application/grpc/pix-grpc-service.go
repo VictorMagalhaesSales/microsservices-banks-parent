@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	"codepix/application/grpc/protofiles/pb"
+	"codepix/application/grpc/pb"
 	"codepix/application/usecase"
 	"context"
 )
