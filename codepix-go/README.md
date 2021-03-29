@@ -2,7 +2,11 @@
 Microservice feito em Golang com o objetivo de ser um **hub de transações** entre os **bancos** que simularemos durante o projeto.
 
 ## Topics:
-- **GORM**: Lib ORM do para Golang.
+- **GORM**: lib ORM para Golang.
+- **gRPC**: protocolo de comunicação utilizado;
+
+## gRPC
+- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/application/grpc/protofiles/pixkey.proto)**: foi definide todas as **messages**(models) aceitas nas requisições e o **service** com o contrato das requisições;
 
 ## Folders organization
 - **application**: regras de negócios da aplicação;

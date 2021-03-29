@@ -1,4 +1,4 @@
-module codepix-go
+module codepix
 
 go 1.15
 
@@ -12,4 +12,10 @@ require (
 	github.com/stretchr/testify v1.7.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 	gorm.io/driver/sqlite v1.1.4
+	github.com/golang/protobuf v1.4.3
+	google.golang.org/grpc v1.35.0
+	google.golang.org/protobuf v1.25.0
+	github.com/mitchellh/go-homedir v1.1.0
+	github.com/spf13/cobra v1.1.1
+	github.com/spf13/viper v1.7.1
 )
