@@ -16,4 +16,10 @@ docker-compose up -d
 
 # Run go application
 go run main.go
+
+# Test gRPC Server with Evans
+docker exec -it codepix-go_app_1 bash
+evans -r repl
+call RegisterPixKey...
+call Find...
 ```
