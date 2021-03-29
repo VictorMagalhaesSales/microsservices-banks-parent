@@ -5,12 +5,12 @@ import (
 	"errors"
 )
 
-type TransactionBusiness struct {
+type TransactionService struct {
 	TransactionRepository model.TransactionRepositoryInterface
 	PixRepository         model.PixKeyRepositoryInterface
 }
 
-func (t *TransactionBusiness) Register(accountId string, amount float64, pixKeyto string, pixKeyKindTo string, description string, id string) (*model.Transaction, error) {
+func (t *TransactionService) Register(accountId string, amount float64, pixKeyto string, pixKeyKindTo string, description string, id string) (*model.Transaction, error) {
 
 	account, err := t.PixRepository.FindAccount(accountId)
 	if err != nil {
