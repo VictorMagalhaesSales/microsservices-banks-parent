@@ -10,3 +10,5 @@ Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e 
 
 # Microsservices
 - CodePix(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/README.md)
+
+- BankApi(NextJS) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/bank-api-nextjs/README.md)
