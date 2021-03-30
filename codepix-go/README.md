@@ -1,6 +1,6 @@
 # codepix-go
 Microservice feito em Golang com o objetivo de ser um **hub de transações** entre os **bancos** que simularemos durante o projeto. 
-Possui uma organização de pastas pensadas para um melhor entendimento da arquitetura para revisão de conteúdo. As tecnologias terceiras utilizadas ficam localizadas na pasta **src/modules**.
+Possui uma organização de pastas pensadas para um melhor entendimento da arquitetura para revisão de conteúdo. As tecnologias terceiras utilizadas ficam localizadas na pasta **src/modules** e o servidor bem como os consumidores e produtores do kafka são iniciados em **[commands.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/cmd/commands.go)**.
 
 ## gRPC
 - **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/pixkey.proto)**: arquivo com o **contrato de comunicação** gRPC; definide as **messages** e o **service** que formam as requisições;
@@ -8,6 +8,8 @@ Possui uma organização de pastas pensadas para um melhor entendimento da arqui
 - **[server.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/server.go)**: possui a função responsável por **iniciar o servidor grpc** e **registrar os services grpc** implementados;
 
 ## Apache Kafka
+- **[producer.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/kafka/producer.go)**: publica as mensagens no kafka e fica "escultando" se a msg foi enviada para o mesmo;
+- **[consumer.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/kafka/consumer.go)**: cria o consumidor inscrito nos 2 tópicos da app, processa a mensagem quando houver, faz procedimento de CRUD e publica o resultado em outro tópico;
 
 ## Run application
 ```sh
