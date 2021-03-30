@@ -8,8 +8,8 @@ Possui uma organização de pastas pensadas para um melhor entendimento da arqui
 - **[server.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/grpc/server.go)**: possui a função responsável por **iniciar o servidor grpc** e **registrar os services grpc** implementados;
 
 ## Apache Kafka
-- **[producer.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/kafka/producer.go)**: publica as mensagens no kafka e fica "escultando" se a msg foi enviada para o mesmo;
-- **[consumer.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/kafka/consumer.go)**: cria o consumidor inscrito nos 2 tópicos da app, processa a mensagem quando houver, faz procedimento de CRUD e publica o resultado em outro tópico;
+- **[producer.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/kafka/producer.go)**: cria o produto e publica as mensagens no kafka;
+- **[consumer.go](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-go/src/modules/kafka/consumer.go)**: cria o consumidor e se inscreve em 2 tópicos da aplicação; quando há mensagem, faz procedimento de CRUD e publica o resultado em outro tópico;
 
 ## Run application
 ```sh

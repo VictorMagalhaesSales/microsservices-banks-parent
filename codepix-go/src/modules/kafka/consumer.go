@@ -9,7 +9,7 @@ import (
 
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 
-	"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
 )
 
 type KafkaConsumer struct {
@@ -26,7 +26,7 @@ func NewKafkaConsumer(database *gorm.DB, producer *ckafka.Producer, deliveryChan
 	}
 }
 
-func (k *KafkaConsumer) CreateConsumer() {
+func (k *KafkaConsumer) CreateKafkaConsumer() {
 	configMap := &ckafka.ConfigMap{
 		"bootstrap.servers": os.Getenv("kafkaBootstrapServers"),
 		"group.id":          os.Getenv("kafkaConsumerGroupId"),
@@ -125,7 +125,7 @@ func (k *KafkaConsumer) processTransactionConfirmation(msg *ckafka.Message) erro
 	return nil
 }
 
-func (k *KafkaConsumer) confirmTransaction(transaction model.TransactionDTO, transactionService services.TransactionService) error {
+func (k *KafkaConsumer) confirmTransaction(transaction *model.TransactionDTO, transactionService services.TransactionService) error {
 	confirmedTransaction, err := transactionService.Confirm(transaction.ID)
 	if err != nil {
 		return err

@@ -1,9 +1,7 @@
 package main
 
 import (
-	"codepix/src/config"
-	"codepix/src/modules/grpc"
-	"os"
+	"codepix/cmd"
 
 	"github.com/jinzhu/gorm"
 )
@@ -11,6 +9,5 @@ import (
 var database *gorm.DB
 
 func main() {
-	database := config.ConnectDB(os.Getenv("env"))
-	grpc.StartGrpcServer(database, 50051)
+	cmd.Init()
 }
