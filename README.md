@@ -9,6 +9,6 @@
 Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e gRPC conteinerizado com Docker.
 
 # Microsservices
-- CodePixApi(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/codepix-api-go/README.md)
+- ApiCodePix(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-codepix-go/README.md)
 
-- BankApi(NestJS) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/bank-api-nestjs/README.md)
+- ApiBank(NestJS) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-bank-nestjs/README.md)
