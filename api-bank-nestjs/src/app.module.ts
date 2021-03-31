@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConsoleModule } from 'nestjs-console';
-import { BankAccountController } from './controllers/bank-account/bank-account.controller';
-import { PixKeyController } from './controllers/pix-key/pix-key.controller';
-import { BankAccount } from './models/bank-account.model';
-import { PixKey } from './models/pix-key.model';
+import { BankAccountController } from './controllers/bank-account.controller';
+import { PixKeyController } from './controllers/pix-key.controller';
+import { BankAccount } from '@models/bank-account.model';
+import { PixKey } from '@models/pix-key.model';
 
 @Module({
   imports: [
