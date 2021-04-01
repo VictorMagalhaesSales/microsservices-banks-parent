@@ -6,6 +6,7 @@ import { BankAccountController } from './controllers/bank-account.controller';
 import { PixKeyController } from './controllers/pix-key.controller';
 import { BankAccount } from './models/bank-account.model';
 import { PixKey } from './models/pix-key.model';
+import { FixturesCommand } from './utils/fixtures/fixtures.command';
 
 @Module({
   imports: [
@@ -24,6 +25,6 @@ import { PixKey } from './models/pix-key.model';
     TypeOrmModule.forFeature([BankAccount, PixKey]),
   ],
   controllers: [BankAccountController, PixKeyController],
-  providers: [],
+  providers: [FixturesCommand],
 })
 export class AppModule {}
