@@ -4,6 +4,7 @@ Foi utilizado o **TypeORM** como ORM e o **nestjs-console** junto com **commande
 
 - **@nestjs/microservices**: habilita o projeto como client para consumir outros serviços. Basta adicionar `ClientsModule.register([clientGrpcConfig, clientConfig2])`ao seu módulo;
 - **class-validator**: nos permite criar validações(string, tipo e etc) em propriedade dos nossos models;
+- **grpc** e **@grpc/proto-loader**: conexão feita através d módulo **ClientsModule**, em **[app.module.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/app.module.ts)**;
 
 ## Running the app
 ```bash
