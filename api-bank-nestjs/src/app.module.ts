@@ -6,7 +6,9 @@ import { BankAccountController } from './controllers/bank-account.controller';
 import { PixKeyController } from './controllers/pix-key.controller';
 import { BankAccount } from './models/bank-account.model';
 import { PixKey } from './models/pix-key.model';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 import { FixturesCommand } from './utils/fixtures/fixtures.command';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -22,7 +24,17 @@ import { FixturesCommand } from './utils/fixtures/fixtures.command';
       // Entidades que poderão ser utilizadas pela aplicação
       entities: [BankAccount, PixKey]
     }),
+    // Entidades que serão usadas por ESSE módulo especificamente
     TypeOrmModule.forFeature([BankAccount, PixKey]),
+    ClientsModule.register([{
+      name: 'CODEPIX_PACKAGE',
+      transport: Transport.GRPC,
+      options: {
+        url: process.env.GRPC_URL,
+        package: 'codepix',
+        protoPath: [join(__dirname, 'modules/grpc/pixkey.proto')]
+      }
+    }])
   ],
   controllers: [BankAccountController, PixKeyController],
   providers: [FixturesCommand],
