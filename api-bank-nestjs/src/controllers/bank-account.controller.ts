@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { BankAccount } from '@models/bank-account.model';
+import { BankAccount } from '../models/bank-account.model';
 import { Repository } from 'typeorm';
 
 @Controller('bank-account')

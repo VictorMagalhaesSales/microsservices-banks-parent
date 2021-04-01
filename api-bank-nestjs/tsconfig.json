@@ -11,9 +11,6 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "paths": {
-      "@models/*": ["src/models/*"],
-    }
   },
   "include": ["src"],
   "exclude": ["node_modules", ".docker", "dist"]
