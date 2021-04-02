@@ -22,6 +22,8 @@ services:
       - POSTGRES_DB=codepix
     ports:
       - "5432:5432"
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
 
   pgadmin:
     image: dpage/pgadmin4
