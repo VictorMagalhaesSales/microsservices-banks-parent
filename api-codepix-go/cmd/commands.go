@@ -35,6 +35,6 @@ var allCmd = &cobra.Command{
 
 func Init() {
 	rootCmd.AddCommand(allCmd)
-	allCmd.Flags().IntVarP(&gRPCPortNumber, "grpc-port", "p", 5051, "gRPC Port")
+	allCmd.Flags().IntVarP(&gRPCPortNumber, "grpc-port", "p", 50051, "gRPC Port")
 	rootCmd.Execute()
 }

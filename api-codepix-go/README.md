@@ -17,7 +17,7 @@ Possui uma organização de pastas pensadas para um melhor entendimento da arqui
 docker-compose up -d
 
 # Run go application
-go run main.go
+go run main.go all
 
 # Test gRPC Server with Evans
 docker exec -it codepix-go_app_1 bash
