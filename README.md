@@ -12,3 +12,18 @@ Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e 
 - ApiCodePix(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-codepix-go/README.md)
 
 - ApiBank(NestJS) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-bank-nestjs/README.md)
+
+
+## Running containres
+```bash
+# Running all containers
+docker-compose up
+
+# Running nestjs container
+cd api-bank-nestjs
+docker-compose up
+
+# Running golang container
+cd api-pix-go
+docker-compose up
+```
