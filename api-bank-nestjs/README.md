@@ -4,7 +4,12 @@ Foi utilizado o **TypeORM** como ORM e o **nestjs-console** junto com **commande
 
 - **@nestjs/microservices**: habilita o projeto como client para consumir outros serviços. Basta adicionar `ClientsModule.register([clientGrpcConfig, clientConfig2])`ao seu módulo;
 - **class-validator**: nos permite criar validações(string, tipo e etc) em propriedade dos nossos models;
-- **grpc** e **@grpc/proto-loader**: conexão feita através d módulo **ClientsModule**, em **[app.module.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/app.module.ts)**;
+
+## gRPC
+- Bibliotecas utilizadas: **grpc** e **@grpc/proto-loader**.
+- **Conexão** feita através do módulo **[ClientsModule](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/app.module.ts)**, passando as configurações do servidor gRPC feito em Golang;
+- **[pixKey.proto](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/modules/grpc/pixkey.proto)**: arquivo com o **contrato de comunicação** gRPC idêntico ao da aplicação em Golang;
+- Ao registrar um Pix, em **[pix-key.controller.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/controllers/pix-key.controller.ts)**, a api chama o serviço Golang via gRPC, verifica se já existe e cria a Pix. Somente após isso é criado a pix no DB da api-bank. 
 
 ## Running the app
 ```bash

@@ -25,3 +25,5 @@ services:
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=nest
+    ports:
+      - "5433:5432"
