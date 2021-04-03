@@ -2,13 +2,13 @@ version: "3"
 
 services:
   api-pix-go:
-    build: api-codepix-go/.
+    build: api-pix-go/.
     command: go run main.go all
     container_name: api-pix-go
     ports:
     - "50051:50051"
     volumes:
-      - ./api-codepix-go/.:/go/src/
+      - ./api-pix-go/.:/go/src/
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
 
@@ -17,7 +17,7 @@ services:
     restart: always
     tty: true
     volumes:
-      - ./api-codepix-go/.pgdata:/var/lib/postgresql/data
+      - ./api-pix-go/.pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=codepix
