@@ -1,17 +1,33 @@
+import { GetServerSideProps, NextPage } from "next";
 import Layout from "../components/Layout";
 import BankAccountCard from "../components/utils/BankAccountCard";
+import { BankAccount } from "../models/model";
+import { bankApi } from "../utils/http";
 
-export default function BankAccountList() {
+interface BankAccountsListProps {
+    bankAccounts: BankAccount[];
+}
+
+const BankAccountsList: NextPage<BankAccountsListProps> = (props) => {
+    const { bankAccounts } = props;
+
     return (
         <Layout>
             <h1>Contas bancárias</h1>
             <div className="row">
-                <a className="col-12 col-sm-6 col-md4">
-                <BankAccountCard bankAccount={{
-                    id: 'teste', owner_name: 'Victor', balance: 0, account_number: '1111'
-                }}/>
-                </a>
+                {bankAccounts.map(bank => (
+                    <a className="col-12 col-sm-6 col-md4">
+                        <BankAccountCard bankAccount={bank}/>
+                    </a>
+                ))}
             </div>
         </Layout>
     );
+}
+
+export default BankAccountsList;
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const { data: bankAccounts } = await bankApi.get('bank-account');
+    return {props: {bankAccounts}};
 }
