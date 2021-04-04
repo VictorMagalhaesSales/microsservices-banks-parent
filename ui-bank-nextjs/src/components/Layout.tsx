@@ -4,20 +4,11 @@ import Navbar from "./Navbar";
 import BankAccountCard from "./utils/BankAccountCard";
 import Title from "./utils/Title";
 
-export default function Layout() {
+export default function Layout(props) {
     return (
         <div>
             <Navbar/>
-            <MainContent>
-                <Title>Contas bancárias</Title>
-                <BankAccountCard/>
-                <BankAccountCard/>
-                <BankAccountCard/>
-                <BankAccountCard/>
-                <BankAccountCard/>
-                <BankAccountCard/>
-                <BankAccountCard/>
-            </MainContent>
+            <MainContent>{props.children}</MainContent>
             <Footer/>
         </div>
     );
