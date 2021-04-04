@@ -6,7 +6,7 @@
 ![Kafka](https://img.shields.io/badge/-Kafka-gray?style=flat-square&logo=apache)
 ![gRPC](https://img.shields.io/badge/-gRPC-gray?style=flat-square&logo=gRPC&color=244c5a)
 
-Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e gRPC conteinerizado com Docker.
+Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e gRPC conteinerizado com Docker. Projeto feito seguindo a "Imersão Full Stack && Full Cycle" da Code Education.
 
 # Microsservices
 - ApiCodePix(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-pix-go/README.md)
