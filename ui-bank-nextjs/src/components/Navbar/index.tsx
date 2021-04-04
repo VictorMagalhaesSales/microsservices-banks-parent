@@ -2,7 +2,7 @@ import classes from "./Navbar.module.scss";
 
 export default function Navbar() {
     return (
-        <nav className={`navbar navbar-expand-lg ${classes.root} bank001`}>
+        <nav className={`navbar navbar-expand-lg ${classes.root} ${classes.bank001}`}>
             <div className={`container-fluid ${classes.navbarBody}`}>
                 <a className={`navbar-brand ${classes.navbarBrand}`} href="#">
                     <img src="/img/icon_banco.png" alt="" className={classes.logoBank} />
