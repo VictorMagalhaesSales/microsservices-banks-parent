@@ -73,7 +73,7 @@ export class PixKeyController {
         await pixService.find(params).toPromise();
         return false;
       } catch (e) {
-        if (e.details === 'No key was found') {
+        if (e.details === 'no key was found') {
           return true;
         }
         console.log(e);
@@ -92,7 +92,7 @@ export class PixKeyController {
       try {
         await pixService.find(params).toPromise();
       } catch (e) {
-        if (e.details === 'No key was found') {
+        if (e.details === 'no key was found') {
           throw new NotFoundException(e.details);
         }
         console.log(e);

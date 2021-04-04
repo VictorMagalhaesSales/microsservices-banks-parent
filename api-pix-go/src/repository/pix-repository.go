@@ -46,7 +46,7 @@ func (r PixKeyRepositoryDb) FindKeyByKind(key string, kind string) (*model.PixKe
 	r.Db.Preload("Account.Bank").First(&pixKey, "kind = ? and key = ?", kind, key)
 
 	if pixKey.ID == "" {
-		return nil, fmt.Errorf("No key was found")
+		return nil, fmt.Errorf("no key was found")
 	}
 	return &pixKey, nil
 }
