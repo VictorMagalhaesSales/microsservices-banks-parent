@@ -1,8 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
-import Layout from "../components/Layout";
-import BankAccountCard from "../components/utils/BankAccountCard";
-import { BankAccount } from "../models/model";
-import { bankApi } from "../utils/http";
+import Layout from "../../components/Layout";
+import BankAccountCard from "../../components/utils/BankAccountCard";
+import { BankAccount } from "../../models/model";
+import { bankApi } from "../../utils/http";
+import Link from 'next/link'
 
 interface BankAccountsListProps {
     bankAccounts: BankAccount[];
@@ -16,9 +17,11 @@ const BankAccountsList: NextPage<BankAccountsListProps> = (props) => {
             <h1>Contas bancárias</h1>
             <div className="row">
                 {bankAccounts.map(bank => (
-                    <a className="col-12 col-sm-6 col-md4">
-                        <BankAccountCard bankAccount={bank}/>
-                    </a>
+                    <Link href="bank-account/[id]" as={`/bank-account/${bank.id}`}>
+                        <a className="col-12 col-sm-6 col-md4">
+                            <BankAccountCard bankAccount={bank}/>
+                        </a>
+                    </Link>
                 ))}
             </div>
         </Layout>
