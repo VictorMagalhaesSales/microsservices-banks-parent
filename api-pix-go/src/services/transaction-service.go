@@ -3,6 +3,7 @@ package services
 import (
 	"codepix/src/model"
 	"errors"
+	"fmt"
 	"log"
 )
 
@@ -15,16 +16,19 @@ func (t *TransactionService) Register(accountId string, amount float64, pixKeyto
 
 	account, err := t.PixRepository.FindAccount(accountId)
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 
 	pixKey, err := t.PixRepository.FindKeyByKind(pixKeyto, pixKeyKindTo)
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 
 	transaction, err := model.NewTransaction(account, amount, pixKey, description, id)
 	if err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
 

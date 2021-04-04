@@ -1,3 +1,4 @@
+import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { Transport } from '@nestjs/microservices';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -17,7 +18,7 @@ async function bootstrap() {
 bootstrap();
 
 
-function setupKafkaConsumer(app) {
+function setupKafkaConsumer(app: INestApplication) {
   app.connectMicroservice({
     transport: Transport.KAFKA,
     options: {
@@ -34,7 +35,7 @@ function setupKafkaConsumer(app) {
   });
 }
 
-function setupSwagger(app) {
+function setupSwagger(app: INestApplication) {
   const config = new DocumentBuilder()
     .setTitle('Api Bank - NestJS')
     .setDescription('Aplicação para manipular os bancos do nosso sistema de microserviços')

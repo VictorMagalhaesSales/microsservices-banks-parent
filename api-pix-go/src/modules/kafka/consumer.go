@@ -67,6 +67,7 @@ func (k *KafkaConsumer) processTransaction(msg *ckafka.Message) error {
 	transaction := model.NewTransactionDTO()
 	err := transaction.ParseJson(msg.Value)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 
@@ -91,11 +92,13 @@ func (k *KafkaConsumer) processTransaction(msg *ckafka.Message) error {
 	transactionJson, err := transaction.ToJson()
 
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 
 	err = Publish(string(transactionJson), topic, k.Producer, k.DeliveryChan)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	return nil
@@ -105,6 +108,7 @@ func (k *KafkaConsumer) processTransactionConfirmation(msg *ckafka.Message) erro
 	transaction := model.NewTransactionDTO()
 	err := transaction.ParseJson(msg.Value)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 
@@ -113,11 +117,13 @@ func (k *KafkaConsumer) processTransactionConfirmation(msg *ckafka.Message) erro
 	if transaction.Status == model.TransactionConfirmed {
 		err = k.confirmTransaction(transaction, transactionService)
 		if err != nil {
+			fmt.Println(err)
 			return err
 		}
 	} else if transaction.Status == model.TransactionCompleted {
 		_, err := transactionService.Complete(transaction.ID)
 		if err != nil {
+			fmt.Println(err)
 			return err
 		}
 		return nil
@@ -128,17 +134,20 @@ func (k *KafkaConsumer) processTransactionConfirmation(msg *ckafka.Message) erro
 func (k *KafkaConsumer) confirmTransaction(transaction *model.TransactionDTO, transactionService services.TransactionService) error {
 	confirmedTransaction, err := transactionService.Confirm(transaction.ID)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 
 	topic := "bank" + confirmedTransaction.AccountFrom.Bank.Code
 	transactionJson, err := transaction.ToJson()
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 
 	err = Publish(string(transactionJson), topic, k.Producer, k.DeliveryChan)
 	if err != nil {
+		fmt.Println(err)
 		return err
 	}
 	return nil

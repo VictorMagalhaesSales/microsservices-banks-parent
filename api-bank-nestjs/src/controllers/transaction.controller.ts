@@ -66,8 +66,7 @@ export class TransactionController implements OnModuleInit, OnModuleDestroy {
       bank_account_id: bankAccountId,
       operation: TransactionOperation.debit,
     });
-    this.transactionRepo.save(transaction);
-
+    transaction = await this.transactionRepo.save(transaction);
     const sendData = {
       id: transaction.external_id,
       accountId: bankAccountId,
