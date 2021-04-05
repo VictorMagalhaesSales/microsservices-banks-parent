@@ -1,0 +1,94 @@
+@import "styles/sass/variables";
+@import "styles/sass/mixins";
+
+.titleTable {
+  font-size: 1.25em;
+  font-weight: 400;
+  color: $color-text;
+  margin-bottom: 10px;
+}
+
+.tableTransactions {
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 20px;
+
+  tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+
+  thead {
+    border-top-left-radius: 7px;
+  }
+
+  th,
+  td {
+    padding: 5px 10px;
+  }
+
+  td {
+    color: $color-text;
+  }
+}
+
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @include respond-to($_768) {
+    flex-direction: row;
+  }
+
+  .buttonActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.actionLink {
+  font-size: 1.3em;
+  font-weight: 500;
+  color: $bank001;
+  text-align: left;
+  min-width: 277px;
+  padding: 10px 20px;
+  background-color: $white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+
+  &.bank001 {
+      color: $bank001;
+      border-left: 4px solid $bank001;
+  }
+
+  &.bank002 {
+      color: $bank002;
+      border-left: 4px solid $bank002;
+  }
+
+  &.bank003 {
+      color: $bank003;
+      border-left: 4px solid $bank003;
+  }
+
+  &.bank004 {
+      color: $bank004;
+      border-left: 4px solid $bank004;
+  }
+
+  &.bank005 {
+      color: $bank005;
+      border-left: 4px solid $bank005;
+  }
+
+  &.bank006 {
+      color: $bank006;
+      border-left: 4px solid $bank006;
+  }
+}

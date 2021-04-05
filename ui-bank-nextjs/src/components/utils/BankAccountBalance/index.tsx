@@ -1,15 +1,9 @@
-import { useContext } from "react";
-import BankContext from "../../../context/BankContext";
+import { FunctionComponent, useContext } from "react";
 import classes from "./BankAccountBalance.module.scss";
 
-interface BankAccountBalanceProps {
-  balance: number;
-}
-export const BankAccountBalance: React.FunctionComponent<BankAccountBalanceProps> = (
-  props
-) => {
+
+export const BankAccountBalance: FunctionComponent<{balance: number}> = (props) => {
   const { balance } = props;
-  const bank = useContext(BankContext);
   return (
     <div className={`${classes.root} ${classes.bank001}`}>
       <h2>

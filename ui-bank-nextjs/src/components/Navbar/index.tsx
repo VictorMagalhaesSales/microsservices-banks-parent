@@ -10,7 +10,7 @@ const Navbar: FunctionComponent<{bankAccount?: BankAccount}> = (props) => {
     return (
         <nav className={`navbar navbar-expand-lg ${classes.root} ${classes.bank001}`}>
             <div className={`container-fluid ${classes.navbarBody}`}>
-                <Link href="/bank-accounts" as="/bank-accounts">
+                <Link href="/banks" as="/banks">
                 <a className={`navbar-brand ${classes.navbarBrand}`} href="#">
                     <img src="/img/icon_banco.png" alt="" className={classes.logoBank}/>
                     <div className={classes.bankName}>

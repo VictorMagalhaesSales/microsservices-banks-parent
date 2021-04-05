@@ -1,45 +1,32 @@
 import Layout from "../../../components/Layout";
 import classes from "./BankAccountDashboard.module.scss";
 import { BankAccount, Transaction } from "../../../utils/model";
-import Link, { LinkProps } from "next/link";
-import { FunctionComponent, useContext } from "react";
+import Link from "next/link";
+import { FunctionComponent } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { bankApi } from "../../../utils/http";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO"; 
 import { BankAccountBalance } from "../../../components/utils/BankAccountBalance";
-import BankContext from "../../../context/BankContext";
 
-interface ActionLinkProps extends LinkProps {}
-const ActionLink: FunctionComponent<ActionLinkProps> = (props) => {
-    const { children, ...rest } = props;
-    const bank = useContext(BankContext);
-    return (
-        <Link {...rest}>
-            <a className={`${classes.actionLink} bank001`}>{children}</a>
-        </Link>
-    );
-};
-
-interface HeaderProps {
-    bankAccount: BankAccount;
-}
-const Header: FunctionComponent<HeaderProps> = (props) => {
+const Header: FunctionComponent<{bankAccount: BankAccount}> = (props) => {
     const { bankAccount } = props;
     return (
-        <div className={`container ${classes.header}`}>
-            <BankAccountBalance balance={bankAccount.balance} />
-            <div className={classes.buttonActions}>
-                <ActionLink href="/bank-account/[id]/pix/transactions/register" 
-                    as={`/bank-account/${bankAccount.id}/pix/transactions/register`}>
+    <div className={`container ${classes.header}`}>
+        <BankAccountBalance balance={bankAccount.balance} />
+        <div className={classes.buttonActions}>
+            <Link href="/banks/[id]/transactions" as={`/banks/${bankAccount.id}/transactions`}>
+                <a className={`${classes.actionLink} bank001`}>
                     Realizar transferência
-                </ActionLink>
-                <ActionLink href={"/bank-account/[id]/pix/register"} 
-                    as={`/bank-account/${bankAccount.id}/pix/register`}>
+                </a>
+            </Link>
+            <Link href={"/banks/[id]/pix"} as={`/banks/${bankAccount.id}/pix`}>
+                <a className={`${classes.actionLink} bank001`}>
                     Cadastrar chave pix
-                </ActionLink>
-            </div>
+                </a>
+            </Link>
         </div>
+    </div>
     );
 };
 
@@ -83,7 +70,6 @@ const BankAccountDashboard: NextPage<BankAccountDashboardProps> = (props) => {
         </Layout>
     );
 }
-
 export default BankAccountDashboard;
 
 export const getServerSideProps: GetServerSideProps = async (cxt) => {

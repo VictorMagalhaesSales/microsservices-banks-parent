@@ -9,9 +9,12 @@
 Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e gRPC conteinerizado com Docker. Projeto feito seguindo a "Imersão Full Stack && Full Cycle" da Code Education.
 
 # Microsservices
-- ApiCodePix(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-pix-go/README.md)
+
+- UIBank(NextJS) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/ui-bank-nextjs/README.md)
 
 - ApiBank(NestJS) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-bank-nestjs/README.md)
+
+- ApiCodePix(Golang) - [Documentation](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/tree/master/api-pix-go/README.md)
 
 
 ## Running containres

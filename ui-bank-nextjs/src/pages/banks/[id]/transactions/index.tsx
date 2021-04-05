@@ -4,16 +4,16 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
-import { BankAccount } from "../../../../../utils/model";
-import { bankApi } from "../../../../../utils/http";
-import Modal from "../../../../../utils/modal";
-import Layout from "../../../../../components/Layout";
-import Title from "../../../../../components/utils/Title";
-import Card from "../../../../../components/utils/Card";
-import Input from "../../../../../components/utils/forms/Input";
-import FormButtonActions from "../../../../../components/utils/forms/FormButtonActions";
-import Button from "../../../../../components/utils/forms/Button";
-import Select from "../../../../../components/utils/forms/Select";
+import { BankAccount } from "../../../../utils/model";
+import { bankApi } from "../../../../utils/http";
+import Modal from "../../../../utils/modal";
+import Layout from "../../../../components/Layout";
+import Title from "../../../../components/utils/Title";
+import Card from "../../../../components/utils/Card";
+import Input from "../../../../components/utils/forms/Input";
+import FormButtonActions from "../../../../components/utils/forms/FormButtonActions";
+import Button from "../../../../components/utils/forms/Button";
+import Select from "../../../../components/utils/forms/Select";
 
 const TransactionRegister: NextPage<{bankAccount: BankAccount}> = (props) => {
   const {bankAccount} = props;
@@ -22,11 +22,11 @@ const TransactionRegister: NextPage<{bankAccount: BankAccount}> = (props) => {
 
   async function onSubmit(data) {
     try {
-      await bankApi.post(`bank-accounts/${id}/transactions`, {
+      await bankApi.post(`banks/${id}/transactions`, {
         ...data, amount: new Number(data.amount),
       });
       Modal.fire({title: "Transação realizada com sucesso", icon: "success"});
-      push(`/bank-accounts/${id}`);
+      push(`/banks/${id}`);
     } catch (e) {
       console.error(e);
       Modal.fire({title: "Ocorreu um erro. Verifique o console", icon: "error"});
@@ -60,7 +60,7 @@ const TransactionRegister: NextPage<{bankAccount: BankAccount}> = (props) => {
           <Input name="description" labelText="Descrição" ref={register} />
           <FormButtonActions>
             <Button type="submit">Cadastrar</Button>
-            <Link href="/bank-account/[id]" as={`/bank-account/${id}`}>
+            <Link href="/banks/[id]" as={`/banks/${id}`}>
               <Button type="button" variant="info">
                 Voltar
               </Button>

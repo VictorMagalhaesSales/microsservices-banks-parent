@@ -26,12 +26,12 @@ const PixRegister: NextPage<PixRegisterProps> = (props) => {
 
     async function onSubmit(data) {
         try{
-          await bankApi.post(`bank-accounts/${id}/pix-keys`, data);
+          await bankApi.post(`banks/${id}/pix-keys`, data);
           Modal.fire({
             title: 'Chave cadastrada com sucesso',
             icon: 'success'
           });
-          push(`/bank-account/${id}`);
+          push(`/banks/${id}`);
         }catch(e){
           console.error(e);
           Modal.fire({
@@ -54,7 +54,7 @@ const PixRegister: NextPage<PixRegisterProps> = (props) => {
                         <Input name="key" labelText="Digite a chave" ref={register} />
                         <FormButtonActions>
                             <Button type="submit">Cadastrar</Button>
-                            <Link href="/bank-account/[id]" as={`/bank-account/${id}`}>
+                            <Link href="/banks/[id]" as={`/banks/${id}`}>
                                 <Button type="button" variant="info">
                                     Voltar
                                 </Button>
