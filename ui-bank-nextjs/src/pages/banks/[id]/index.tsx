@@ -1,5 +1,5 @@
 import Layout from "../../../components/Layout";
-import classes from "./BankAccountDashboard.module.scss";
+import classes from "./BankProfile.module.scss";
 import { BankAccount, Transaction } from "../../../utils/model";
 import Link from "next/link";
 import { FunctionComponent } from "react";
@@ -30,11 +30,11 @@ const Header: FunctionComponent<{bankAccount: BankAccount}> = (props) => {
     );
 };
 
-interface BankAccountDashboardProps {
+interface BankProfileProps {
     bankAccount: BankAccount;
     transactions: Transaction[];
 }
-const BankAccountDashboard: NextPage<BankAccountDashboardProps> = (props) => {
+const BankProfile: NextPage<BankProfileProps> = (props) => {
     const { bankAccount, transactions } = props;
     return (
         <Layout bankAccount={bankAccount}>
@@ -70,7 +70,7 @@ const BankAccountDashboard: NextPage<BankAccountDashboardProps> = (props) => {
         </Layout>
     );
 }
-export default BankAccountDashboard;
+export default BankProfile;
 
 export const getServerSideProps: GetServerSideProps = async (cxt) => {
     const {query: { id }} = cxt;

@@ -19,14 +19,18 @@ Microserviços feitos com Go, NextJS e NestJS. Comunicação com Apache Kafka e 
 
 ## Running containres
 ```bash
-# Running all containers
+# Running ALL containers
 docker-compose up
 
-# Running nestjs container
+# Running NextJS container
+cd ui-bank-nextjs
+docker-compose up
+
+# Running NestJS container
 cd api-bank-nestjs
 docker-compose up
 
-# Running golang container
+# Running Golang container
 cd api-pix-go
 docker-compose up
 ```

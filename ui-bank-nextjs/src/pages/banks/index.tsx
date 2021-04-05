@@ -5,7 +5,7 @@ import { BankAccount } from "../../utils/model";
 import { bankApi } from "../../utils/http";
 import Link from 'next/link'
 
-const BankAccountsList: NextPage<{bankAccounts: BankAccount[]}> = (props) => {
+const BankList: NextPage<{bankAccounts: BankAccount[]}> = (props) => {
     const { bankAccounts } = props;
 
     return (
@@ -23,7 +23,7 @@ const BankAccountsList: NextPage<{bankAccounts: BankAccount[]}> = (props) => {
         </Layout>
     );
 }
-export default BankAccountsList;
+export default BankList;
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const { data: bankAccounts } = await bankApi.get('bank-account');
