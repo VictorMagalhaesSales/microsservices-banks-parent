@@ -7,7 +7,7 @@ import FormButtonActions from "../../../../components/utils/forms/FormButtonActi
 import Input from "../../../../components/utils/forms/Input";
 import PixKeyCard from "../../../../components/utils/PixKeyCard";
 import Title from "../../../../components/utils/Title";
-import { BankAccount, PixKey } from "../../../../models/model";
+import { BankAccount, PixKey } from "../../../../utils/model";
 import { bankApi } from "../../../../utils/http";// @flow
 import classes from "./PixRegister.module.scss";
 import { useRouter } from "next/router";

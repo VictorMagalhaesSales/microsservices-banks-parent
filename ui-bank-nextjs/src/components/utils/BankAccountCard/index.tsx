@@ -1,4 +1,4 @@
-import { BankAccount } from "../../../models/model";
+import { BankAccount } from "../../../utils/model";
 import classes from "./BankAccountCard.module.scss";
 
 interface BankAccountCardProps {

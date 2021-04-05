@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import BankContext from "../../../context/BankContext";
 import classes from "./BankAccountBalance.module.scss";
 
 interface BankAccountBalanceProps {
@@ -8,7 +9,7 @@ export const BankAccountBalance: React.FunctionComponent<BankAccountBalanceProps
   props
 ) => {
   const { balance } = props;
-  //const bank = useContext(BankContext);
+  const bank = useContext(BankContext);
   return (
     <div className={`${classes.root} ${classes.bank001}`}>
       <h2>

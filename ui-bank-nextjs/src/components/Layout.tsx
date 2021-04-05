@@ -1,15 +1,18 @@
+import { BankAccount } from "../utils/model";
 import Footer from "./Footer";
 import MainContent from "./MainContent";
 import Navbar from "./Navbar";
-import BankAccountCard from "./utils/BankAccountCard";
-import Title from "./utils/Title";
 
-export default function Layout(props) {
+
+const Layout: React.FunctionComponent<{bankAccount?: BankAccount}> = (props) => {
+    const { bankAccount } = props;
     return (
-        <div>
-            <Navbar/>
-            <MainContent>{props.children}</MainContent>
-            <Footer/>
-        </div>
+      <>
+        <Navbar bankAccount={bankAccount} />
+        <MainContent>{props.children}</MainContent>
+        <Footer />
+      </>
     );
-}
+};
+export default Layout;
+  

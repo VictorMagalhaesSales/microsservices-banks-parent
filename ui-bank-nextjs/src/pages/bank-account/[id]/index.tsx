@@ -1,20 +1,19 @@
 import Layout from "../../../components/Layout";
-import Title from "../../../components/utils/Title";
 import classes from "./BankAccountDashboard.module.scss";
-import { BankAccount, Transaction } from "../../../models/model";
+import { BankAccount, Transaction } from "../../../utils/model";
 import Link, { LinkProps } from "next/link";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useContext } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { bankApi } from "../../../utils/http";
 import format from "date-fns/format";
 import parseISO from "date-fns/parseISO"; 
 import { BankAccountBalance } from "../../../components/utils/BankAccountBalance";
+import BankContext from "../../../context/BankContext";
 
 interface ActionLinkProps extends LinkProps {}
 const ActionLink: FunctionComponent<ActionLinkProps> = (props) => {
     const { children, ...rest } = props;
-    const bank = null;
-    //const bank = React.useContext(BankContext);
+    const bank = useContext(BankContext);
     return (
         <Link {...rest}>
             <a className={`${classes.actionLink} bank001`}>{children}</a>

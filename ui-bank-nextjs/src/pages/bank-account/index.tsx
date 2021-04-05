@@ -1,7 +1,7 @@
 import { GetServerSideProps, NextPage } from "next";
 import Layout from "../../components/Layout";
 import BankAccountCard from "../../components/utils/BankAccountCard";
-import { BankAccount } from "../../models/model";
+import { BankAccount } from "../../utils/model";
 import { bankApi } from "../../utils/http";
 import Link from 'next/link'
 
