@@ -31,7 +31,7 @@ const PixRegister: NextPage<PixRegisterProps> = (props) => {
             title: 'Chave cadastrada com sucesso',
             icon: 'success'
           });
-          push(`/bank-accounts/${id}`);
+          push(`/bank-account/${id}`);
         }catch(e){
           console.error(e);
           Modal.fire({
@@ -54,10 +54,10 @@ const PixRegister: NextPage<PixRegisterProps> = (props) => {
                         <Input name="key" labelText="Digite a chave" ref={register} />
                         <FormButtonActions>
                             <Button type="submit">Cadastrar</Button>
-                            <Link href="/bank-accounts/[id]" as={`/bank-accounts/${id}`}>
-                            <Button type="button" variant="info">
-                                Voltar
-                            </Button>
+                            <Link href="/bank-account/[id]" as={`/bank-account/${id}`}>
+                                <Button type="button" variant="info">
+                                    Voltar
+                                </Button>
                             </Link>
                         </FormButtonActions>
                     </form>
