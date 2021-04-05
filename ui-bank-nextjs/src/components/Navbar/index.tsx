@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { FunctionComponent, useContext } from "react";
-import BankContext from "../../context/BankContext";
+import { FunctionComponent } from "react";
 import { BankAccount } from "../../utils/model";
 import classes from "./Navbar.module.scss";
 
 const Navbar: FunctionComponent<{bankAccount?: BankAccount}> = (props) => {
     const { bankAccount } = props;
-    const bank = useContext(BankContext);
     return (
         <nav className={`navbar navbar-expand-lg ${classes.root} ${classes.bank001}`}>
             <div className={`container-fluid ${classes.navbarBody}`}>
