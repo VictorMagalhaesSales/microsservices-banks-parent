@@ -31,12 +31,12 @@ const Header: FunctionComponent<HeaderProps> = (props) => {
         <div className={`container ${classes.header}`}>
             <BankAccountBalance balance={bankAccount.balance} />
             <div className={classes.buttonActions}>
-                <ActionLink href="/bank-accounts/[id]/pix/transactions/register" 
-                    as={`/bank-accounts/${bankAccount.id}/pix/transactions/register`}>
+                <ActionLink href="/bank-account/[id]/pix/transactions/register" 
+                    as={`/bank-account/${bankAccount.id}/pix/transactions/register`}>
                     Realizar transferência
                 </ActionLink>
-                <ActionLink href={"/bank-accounts/[id]/pix/register"} 
-                    as={`/bank-accounts/${bankAccount.id}/pix/register`}>
+                <ActionLink href={"/bank-account/[id]/pix/register"} 
+                    as={`/bank-account/${bankAccount.id}/pix/register`}>
                     Cadastrar chave pix
                 </ActionLink>
             </div>
