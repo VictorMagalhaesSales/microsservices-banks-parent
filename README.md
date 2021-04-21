@@ -1,4 +1,4 @@
-# microsservices-banks-parent
+# microservices-banks-parent
 ![NextJS](https://img.shields.io/badge/-nextjs-black?style=flat-square&logo=next.js)
 ![NestJS](https://img.shields.io/badge/-nestjs-red?style=flat-square&logo=nestjs&color=ea2845)
 ![Golang](https://img.shields.io/badge/-Golang-blue?style=flat-square&logo=go&logoColor=white)
