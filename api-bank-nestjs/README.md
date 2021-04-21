@@ -1,11 +1,11 @@
 # api-bank-nestjs
 Microservice feito em NestJS com o objetivo de controlar os **bancos** que utilizaremos durante o projeto. 
 Foi utilizado o **TypeORM** como ORM e o **nestjs-console** junto com **commander** para fazer uma carga inicial de dados([console.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/console.ts) e [fixtures.command.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/utils/fixtures/fixtures.command.ts)).
-
+## Bibliotecas
 - **@nestjs/microservices**: habilita o projeto como client para consumir outros serviços. Basta adicionar `ClientsModule.register([clientGrpcConfig, clientConfig2])`ao seu módulo.
 - **class-validator**: nos permite criar validações(string, tipo e etc) em propriedade dos nossos models.
 
-# Apache Kafka
+## Apache Kafka
 - **Conexão** feita através do módulo **[ClientsModule](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/app.module.ts)**(producer) e **[main.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/main.ts)**(consumer), passando as configurações de **consumers**, **producers**, clients e etc...
 - Ao criar uma transação, em **[transaction.controller.ts](https://github.com/VictorMagalhaesSales/microsservices-banks-parent/blob/master/api-bank-nestjs/src/controllers/transaction.controller.ts)**, um producer envia uma mensagem para o **topic transactions** com a transação criada.
 - No microservice de Pix, a mensagem com a transação criada é consumida e persistida. Depois, é feita uma nova publicação de mensagem confirmando a transação que será ouvida por esta aplicação, no método decorado com **@MessagePattern(`topic-name`)**, para então modificar o status da transação para confirmado.
